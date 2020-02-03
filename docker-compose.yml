@@ -1,0 +1,33 @@
+---
+version: "3"
+services:
+    backend: 
+        image: redis
+        restart: always
+        command: "redis-server --appendonly yes"
+        
+    app: 
+        build: . 
+        links: 
+            - backend:redis  
+        environment: 
+            - REDIS_SERVER=backend
+            - SERVICE_PORTS=5000
+        restart: always
+        volumes:
+            - .:/code
+        depends_on:
+            - "backend"
+    
+    proxy:
+        image: dockercloud/haproxy
+        depends_on:
+            - app
+        environment:
+            - BALANCE=leastconn
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - 8000:80
+        links:
+            - app
