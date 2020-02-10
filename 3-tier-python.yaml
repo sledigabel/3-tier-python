@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app3tierpython
+  labels:
+    app: app3tierpython
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+  selector:
+    app: app3tierpython
+  type: NodePort
+---
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: app3tierpython
+ spec:
+   selector:
+     matchLabels:
+        app: app3tierpython
+   replicas: 3
+   template:
+     metadata:
+       labels:
+         app: app3tierpython
+     spec:
+       containers:
+         - name: app3tierpython
+           image: docker.io/sledigabel/3-tier-python:v1.1
+           ports:
+           - containerPort: 5000
+           env:
+           - name: REDIS_SERVER
+             value: redis-master
