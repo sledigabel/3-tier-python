@@ -23,7 +23,9 @@ def hello():
     return "<html><body>HOST: {}\n<br/>\n\
         Count: {}\n<br/>\n\
         Number of apps: {}\n<br>\n\
-        Page visited: {} times</body></html>".format(
+        Page visited: {} times\
+        <img src='https://i.ytimg.com/vi/L_I-26YSHrI/maxresdefault.jpg'/>\
+        <br/></body></html>".format(
             environ.get("HOSTNAME", "hostname"),
             local_count,
             len(redis.client_list()),
