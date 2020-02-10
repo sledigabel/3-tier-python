@@ -20,9 +20,10 @@ def hello():
     except RedisError as e:
         return 'Redis error: {}'.format(e), 500
 
-    return "HOST: {}\n\n\
-        Count: {}\n\n\
-        Number of apps: {}\n\nPage visited: {} times".format(
+    return "<html><body>HOST: {}\n<br/>\n\
+        Count: {}\n<br/>\n\
+        Number of apps: {}\n<br>\n\
+        Page visited: {} times</body></html>".format(
             environ.get("HOSTNAME", "hostname"),
             local_count,
             len(redis.client_list()),
