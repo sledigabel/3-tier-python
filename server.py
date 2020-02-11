@@ -23,7 +23,7 @@ def hello():
     return "<html><body>HOST: {}\n<br/>\n\
         Count: {}\n<br/>\n\
         Number of apps: {}\n<br>\n\
-        Page visited: {} times\
+        Page visited: {} times\n<br/>\
         <img src='https://i.ytimg.com/vi/L_I-26YSHrI/maxresdefault.jpg'/>\
         <br/></body></html>".format(
             environ.get("HOSTNAME", "hostname"),
