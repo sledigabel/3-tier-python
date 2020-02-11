@@ -34,7 +34,11 @@ def hello():
 
 @app.route("/healthcheck")
 def healthcheck():
-    pass
+    try:
+        redis.ping()
+    except RedisError as e:
+        return f"App cannot connect to Redis:{e}", 500
+    return 'App is healthy'
 
 
 if __name__ == '__main__':
