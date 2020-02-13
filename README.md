@@ -29,7 +29,7 @@ Apps count their view pages, as well as a total (recorded in REDIS).
 docker-compose up -d --scale app=3
 ```
 
-## Kubernetes Usage
+## K8S Usage
 
 You first need Redis.
 Install it from helm:
@@ -45,3 +45,16 @@ helm install -f ./redis_values.yaml redis stable/redis
 kubectl apply -f ./3-tier-python.yaml
 ```
 
+## HELM usage
+
+
+```
+cat > redis_values.yaml << EOF
+---
+# metrics:
+#  enabled: true
+usePassword: false
+EOF
+helm install -f ./redis_values.yaml redis stable/redis
+helm install app3tierpython ./app3tierpython
+```
