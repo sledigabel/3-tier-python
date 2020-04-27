@@ -45,7 +45,7 @@ tolerations: []
 
 affinity: {}
 
-redis_backend: "redis-master"
+redis_backend: "app3tierpython-redis-master"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -68,3 +68,10 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+  #
+
+redis:
+  metrics:
+    enabled: true
+  usePassword: false
+
