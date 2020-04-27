@@ -45,7 +45,7 @@ tolerations: []
 
 affinity: {}
 
-redis_backend: "app3tierpython-redis-master"
+redis_backend: "redis-master"
 
 serviceAccount:
   # Specifies whether a service account should be created

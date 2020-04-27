@@ -29,7 +29,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: "REDIS_SERVER"
-              value: "{{ .Values.redis_backend }}"
+              value: "{{ .Release.Name }}-{{ .Values.redis_backend }}"
           ports:
             - name: http
               containerPort: 5000
