@@ -56,5 +56,9 @@ if __name__ == "__main__":
     # redis.set('global_connections_count', 0)
 
     if not redis.ping():
-        print("Could not connect to REDIS @ {}:{}".format(REDIS_SERVER, REDIS_PORT))
+        print(
+            "Could not connect to REDIS @ {}:{}".format(
+                REDIS_SERVER, REDIS_PORT
+            )
+        )
     app.run(host=SERVER, port=PORT)
