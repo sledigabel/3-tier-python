@@ -5,7 +5,8 @@
 replicaCount: 3
 
 image:
-  repository: docker.io/sledigabel/3-tier-python:v1.18.0
+  repository: docker.io/sledigabel/3-tier-python
+  tag: v.18.0
   pullPolicy: Always
 
 imagePullSecrets: []
