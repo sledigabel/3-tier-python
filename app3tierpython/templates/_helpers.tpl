@@ -61,3 +61,16 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+Crafts a nice tag
+*/}}
+{{- define "app3tierpython.tag" -}}
+{{- if .Values.image.tag -}}
+    {{ .Values.image.tag }}
+{{- else if .Values.image.sha -}}
+    sha-{{ .Values.image.sha | trunc 7 }}
+{{- else -}}
+    {{ .Values.image.default_tag }}
+{{- end -}}
+{{- end -}}
