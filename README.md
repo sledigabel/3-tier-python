@@ -58,3 +58,4 @@ EOF
 helm install -f ./redis_values.yaml redis stable/redis
 helm install app3tierpython ./app3tierpython
 ```
+
